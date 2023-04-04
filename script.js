@@ -9,19 +9,22 @@ function checkAnswer(answer) {
 }
 
 function clickHandle(event) {
+  const answered = document.querySelectorAll(
+    ".choice-grid:has(div.active)"
+  ).length;
+  const questions = document.querySelectorAll(".choice-grid").length;
+  if (answered == questions) return;
+
   const { currentTarget } = event;
 
   const otherAnswers = document.querySelectorAll(
     `.choice-grid>div[data-question-id=${currentTarget.dataset.questionId}]`
   );
 
-  // Uncheck all
   otherAnswers.forEach((answer) => {
     uncheckAnswer(answer);
   });
-  console.log(otherAnswers);
 
-  // Check Clicked
   checkAnswer(currentTarget);
 }
 
