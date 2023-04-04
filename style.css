@@ -21,6 +21,7 @@
   border: var(--tile-border);
   margin-bottom: 20px;
   padding: 10px;
+  cursor: pointer;
 }
 
 .choice-grid > div.active {
@@ -34,14 +35,19 @@
   * che contengono un div con classe 'active'.
   * Con div:not(.active) seleziono tutti i div che non sono attivi.
  **/
- .choice-grid:has(div.active) > div:not(.active) {
+.choice-grid:has(div.active) > div:not(.active) {
   opacity: 0.6;
+}
+
+.choice-grid:has(div.active) > div {
+  cursor: auto;
 }
 
 .result {
   display: none;
   margin-top: 20px;
   padding: 20px;
+  margin-bottom: 20px;
 }
 
 .result .title {

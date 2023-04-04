@@ -4,7 +4,7 @@ function isAllChecked() {
   ).length;
   const questions = document.querySelectorAll(".choice-grid").length;
 
-  return answered == questions;
+  return answered === questions;
 }
 
 function uncheckAnswer(answer) {
@@ -58,9 +58,9 @@ function showResult() {
   const result = calculateResult();
 
   const resultBox = document.querySelector(".result");
-  resultBox.querySelector(".result .title").innerHTML =
+  resultBox.querySelector(".result .title").textContent =
     RESULTS_MAP[result].title;
-  resultBox.querySelector(".result .contents").innerHTML =
+  resultBox.querySelector(".result .contents").textContent =
     RESULTS_MAP[result].contents;
 
   resultBox.style.display = "block";
@@ -77,8 +77,8 @@ function clickHandle(event) {
 
 function resetHandle(event) {
   const resultBox = document.querySelector(".result");
-  resultBox.querySelector(".result .title").innerHTML = "";
-  resultBox.querySelector(".result .contents").innerHTML = "";
+  resultBox.querySelector(".result .title").textContent = "";
+  resultBox.querySelector(".result .contents").textContent = "";
   resultBox.style.display = "none";
 
   const answers = document.querySelectorAll(".choice-grid > div.active");
