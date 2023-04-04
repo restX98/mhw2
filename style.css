@@ -23,6 +23,21 @@
   padding: 10px;
 }
 
+.choice-grid > div.active {
+  background-color: #cfe3ff;
+}
+
+/**
+  * Uso questo meccanismo per evitare di modificare l'opacità ad ogni singolo
+  * div tramite JS.
+  * Con .choice-grid:has(div.active) seleziono tutte le section .choice-grid
+  * che contengono un div con classe 'active'.
+  * Con div:not(.active) seleziono tutti i div che non sono attivi.
+ **/
+ .choice-grid:has(div.active) > div:not(.active) {
+  opacity: 0.6;
+}
+
 @media (max-width: 700px) {
   article {
     width: 95%;
