@@ -58,9 +58,9 @@ function showResult() {
   const result = calculateResult();
 
   const resultBox = document.querySelector(".result");
-  document.querySelector(".result .title").innerHTML =
+  resultBox.querySelector(".result .title").innerHTML =
     RESULTS_MAP[result].title;
-  document.querySelector(".result .contents").innerHTML =
+  resultBox.querySelector(".result .contents").innerHTML =
     RESULTS_MAP[result].contents;
 
   resultBox.style.display = "block";
@@ -75,6 +75,20 @@ function clickHandle(event) {
   if (isAllChecked()) showResult();
 }
 
+function resetHandle(event) {
+  const resultBox = document.querySelector(".result");
+  resultBox.querySelector(".result .title").innerHTML = "";
+  resultBox.querySelector(".result .contents").innerHTML = "";
+  resultBox.style.display = "none";
+
+  const answers = document.querySelectorAll(".choice-grid > div.active");
+  answers.forEach((answer) => uncheckAnswer(answer));
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}
+
 // ----
 // MAIN
 // ----
@@ -87,3 +101,7 @@ const answers = document.querySelectorAll(".choice-grid>div[data-question-id]");
 answers.forEach((el) => {
   el.addEventListener("click", (event) => clickHandle(event));
 });
+
+const resetBtn = document
+  .querySelector(".result button.reset")
+  .addEventListener("click", (event) => resetHandle(event));
