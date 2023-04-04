@@ -1,5 +1,6 @@
 :root {
-  --tile-width: 32.5%;
+  --tile-width-desktop: 32.5%;
+  --tile-width-mobile: 49%;
   --tile-background-color: #f4f4f4;
   --tile-border: 1px solid #dcdcdc;
 }
@@ -13,11 +14,35 @@
 
 .choice-grid > div {
   box-sizing: border-box;
-  width: var(--tile-width);
+  width: var(--tile-width-desktop);
   display: flex;
   flex-direction: column;
   background-color: var(--tile-background-color);
   border: var(--tile-border);
   margin-bottom: 20px;
   padding: 10px;
+}
+
+@media (max-width: 700px) {
+  article {
+    width: 95%;
+  }
+
+  header div {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  article {
+    width: 95%;
+  }
+
+  header div {
+    display: none;
+  }
+
+  .choice-grid > div {
+    width: var(--tile-width-mobile);
+  }
 }
