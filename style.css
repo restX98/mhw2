@@ -1,1 +1,23 @@
-/* TODO: inserite il CSS necessario per completare il MHW! */
+:root {
+  --tile-width: 32.5%;
+  --tile-background-color: #f4f4f4;
+  --tile-border: 1px solid #dcdcdc;
+}
+
+.choice-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.choice-grid > div {
+  box-sizing: border-box;
+  width: var(--tile-width);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--tile-background-color);
+  border: var(--tile-border);
+  margin-bottom: 20px;
+  padding: 10px;
+}
